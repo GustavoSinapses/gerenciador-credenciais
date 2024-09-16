@@ -95,9 +95,9 @@ def alterar_status():
 
     credencial = col_credentials.find_one({"_id": payload["_id"]})
 
-    novo_status_ativ = False if payload.get('ativa') else True
+    novo_status_ativ = payload.get('ativa')
 
-    novo_status_block = False if payload.get('bloqueada') else True
+    novo_status_block = payload.get('bloqueada')
 
     col_credentials.update_one({"_id": payload["_id"]}, {"$set": {"ativa": novo_status_ativ, "bloqueada": novo_status_block}})
 
