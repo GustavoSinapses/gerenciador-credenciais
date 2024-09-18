@@ -44,6 +44,10 @@ def listar_empresa():
 def pegar_loogo(_id):
     return jsonify({"msg": col_imagens.find_one({"_id": _id})["logoEmpresa"]})
 
+@app.route("/<_id>/key", methods=["POST"])
+def pegar_key(_id):
+    return jsonify({"msg": col_credentials.find_one({"_id": _id})})
+
 
 @app.route("/<qtd>/criar_credencial", methods=["POST"])
 def criar_credencial(qtd):
